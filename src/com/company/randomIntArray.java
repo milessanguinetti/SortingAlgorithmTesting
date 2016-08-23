@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -48,8 +49,7 @@ public class randomIntArray {
         int [] array2 = new int[Size]; //initialize a secondary array to work in.
         SplitMerge(array, 0, Size, array2);
 
-        System.out.println("\nMerge sort completed; time elapsed: " + (System.currentTimeMillis()-startTime) + " ms.");
-        return System.currentTimeMillis()-startTime;
+        //System.out.println("\nMerge sort completed; time elapsed: " + (System.currentTimeMillis()-startTime) + " ms.");
 
         //optional display code
         /*
@@ -59,6 +59,8 @@ public class randomIntArray {
             else
                 System.out.print(array2[i] + ", ");
         }*/
+
+        return System.currentTimeMillis()-startTime;
     }
 
     // startIndex is inclusive; endIndex is exclusive (A[endIndex] is not in the set).
@@ -166,15 +168,15 @@ public class randomIntArray {
         }
 
         //Optionally, display the sorted list to test the sort's validity.
-        ///*
+        /*
         for(int i = 0; i < Size; ++i){
             if((i+1)%20 == 0)
                 System.out.println(array[i]);
             else
                 System.out.print(array[i] + ", ");
-        }//*/
+        }*/
 
-        System.out.println("\nBucket sort completed; time elapsed: " + (System.currentTimeMillis()-startTime) + " ms.");
+        //System.out.println("\nBucket sort completed; time elapsed: " + (System.currentTimeMillis()-startTime) + " ms.");
         return System.currentTimeMillis()-startTime;
     }
 
@@ -188,7 +190,7 @@ public class randomIntArray {
         Quicksort(0, p-1);
         Quicksort(p + 1, Size-1);
 
-        System.out.println("\nQuicksort completed; time elapsed: " + (System.currentTimeMillis()-startTime) + " ms.");
+        //System.out.println("\nQuicksort completed; time elapsed: " + (System.currentTimeMillis()-startTime) + " ms.");
 
         //optionally display...
         /*
@@ -237,9 +239,28 @@ public class randomIntArray {
             test.Insert(new splayNode(array[i]));
         }
 
-        System.out.println("\nSplaysort completed; time elapsed: " + (System.currentTimeMillis()-startTime) + " ms.");
+        //System.out.println("\nSplaysort completed; time elapsed: " + (System.currentTimeMillis()-startTime) + " ms.");
 
         //test.Display();
+        return System.currentTimeMillis()-startTime;
+    }
+
+    public long nativeSort(){
+        long startTime = System.currentTimeMillis(); //store the current time.
+
+        Arrays.sort(array);
+
+        //System.out.println("\nsort completed; time elapsed: " + (System.currentTimeMillis()-startTime) + " ms.");
+
+        //Optionally, display the sorted list to test the sort's validity.
+        /*
+        for(int i = 0; i < Size; ++i){
+            if((i+1)%20 == 0)
+                System.out.println(array[i]);
+            else
+                System.out.print(array[i] + ", ");
+        }*/
+
         return System.currentTimeMillis()-startTime;
     }
 }
